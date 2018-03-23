@@ -34,6 +34,6 @@ def displayStats(player,enemys):
     os.system('clear')
     for i in range(0,len(enemys)):
         print('''
-        {} {}: Damage Range:{}-{} Stamina:{} Max Stamina:{}
+        {} {}: Appox Damage{}-{} Stamina:{} Max Stamina:{}
         '''.format(str(i + 1) + ':', enemys[i].name, enemys[i].guessLowDamage(), enemys[i].guessHighDamage(), enemys[i].stamina, enemys[i].max_stamina))
     time.sleep(3)
