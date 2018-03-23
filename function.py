@@ -32,6 +32,7 @@ def checkPlayerAction(player, enemys, action):
                 return
             except Exception as e:
                 pass
+   
     if action == 2: # Wait
         player.action = 'Waited'
         if player.stamina >= player.max_stamina:
@@ -41,6 +42,11 @@ def checkPlayerAction(player, enemys, action):
             return
         player.stamina += 5
         return
+        
+    if action == 3: # Display stats
+        menu.displayStats(player,enemys)
+        time.sleep(3)
+    
     if action == 9: # Run Away
         player.action = 'Ran Away'
         os.system('clear')
