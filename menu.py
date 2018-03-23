@@ -21,8 +21,7 @@ def mainLoop(player,enemys):
             function.winCondition(enemys)
             
         except Exception as e:
-            print('Somehow hit a error: {}'.format(e))
-            time.sleep(3)
+            pass
 
 def printEnemys(enemys):
     for i in range(0,len(enemys)):
@@ -34,6 +33,9 @@ def displayStats(player,enemys):
     os.system('clear')
     for i in range(0,len(enemys)):
         print('''
-        {} {}: Appox Damage{}-{} Stamina:{} Max Stamina:{}
-        '''.format(str(i + 1) + ':', enemys[i].name, enemys[i].guessLowDamage(), enemys[i].guessHighDamage(), enemys[i].stamina, enemys[i].max_stamina))
-    time.sleep(3)
+        {} {}: Appox Damage:{}-{} Health:{} Stamina:{} Max Stamina:{}
+        '''.format(str(i + 1) + ':', enemys[i].name, enemys[i].guessLowDamage(), enemys[i].guessHighDamage(), enemys[i].health, enemys[i].stamina, enemys[i].max_stamina))
+    print('')
+    print('Player Stats: Damage:{}-{} Health:{} Stamina:{} Max Stamina:{}'.format(player.damage - player.damageVar, player.damage + player.damageVar, player.health, player.stamina, player.max_stamina))
+    input('Please press enter...')
+
