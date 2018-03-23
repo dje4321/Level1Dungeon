@@ -14,7 +14,7 @@ def randEnemy(numEnemy,enemys='None'):
             
     return enemys
 
-def checkPlayerAction(player, enemys, action):
+''' def checkPlayerAction(player, enemys, action):
     action = int(action)
     if action == 1: # Attack
         while True:
@@ -45,13 +45,12 @@ def checkPlayerAction(player, enemys, action):
         
     if action == 3: # Display stats
         menu.displayStats(player,enemys)
-        time.sleep(3)
     
     if action == 9: # Run Away
         player.action = 'Ran Away'
         os.system('clear')
         print('You manage to run away')
-        sys.exit()
+        sys.exit() '''
 
 def checkPlayerHealth(player):
     if player.health <= 0:

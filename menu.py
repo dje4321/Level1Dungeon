@@ -13,10 +13,10 @@ def mainLoop(player,enemys):
            
             action = input('1.Attack 2.Wait 3.Display Stats 9.Run Away --> ')
             
-            function.checkPlayerAction(player, enemys, action)
+            player.checkAction(enemys, action)
             AI.checkEnemyAction(player, enemys)
             
-            function.checkPlayerHealth(player)
+            player.checkHealth()
             function.checkEnemyHealth(enemys)
             function.winCondition(enemys)
             
