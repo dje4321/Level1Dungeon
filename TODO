@@ -1,0 +1,6 @@
+Make damage have a range of possible attack values
+Add the option for different weapons and attack types. Some weapons do better with certain attack types than others but will vary depending on player stats
+Add loot and wave support. Higher waves equals better loot but also harder enemys
+Add option for different player classes with their own stats and prefered weapons and attack types
+Balance enemys a bit better so that being attacked by more than 2 does not gaurneetee death
+Have some form of varience between the enemys along with tracking stats for each. Varience of attack damaga, stamina, max stamina, etc along with allowing the player to GUESS at what these values might be but will not correct 100% of the time. Will be more or less accurate depending on race and stats
