@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import function, menu, classes
 
 from random import randint
