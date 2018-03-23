@@ -7,7 +7,7 @@ class Player:
         self.stamina = 50
         self.max_stamina = 100
         self.damage = 20
-        self.damageVar = 20
+        self.damageVar = 10
         self.action = 'Preparing for Combat'
         self.name = name
         
