@@ -74,8 +74,8 @@ class Player: # Main class for the player
 class Brute(Player):
     
     health = 120
-    stamina = 10
-    max_stamina = 20
+    stamina = 30
+    max_stamina = 60
     damage = 25
     damageVar = 15
     damageMod = 1
