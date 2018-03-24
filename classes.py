@@ -2,16 +2,18 @@ import uuid, os, sys, menu, time
 from random import randint
 
 class Player: # Main class for the player
+    
+    health = 100
+    stamina = 50
+    max_stamina = 100
+    damage = 20
+    damageVar = 10
+    damageMod = 1
+    action = 'Preparing for Combat'
+    desc = 'Just a basic player'
+    playerType = 'Basic'
+    
     def __init__(self, name):
-        self.health = 100
-        self.stamina = 50
-        self.max_stamina = 100
-        self.damage = 20
-        self.damageVar = 10
-        
-        self.damageMod = 1
-        
-        self.action = 'Preparing for Combat'
         self.name = name
     
     def checkHealth(self): # Checks to see if they player has died
@@ -68,24 +70,51 @@ class Player: # Main class for the player
             os.system('clear')
             print('You manage to run away')
             sys.exit()
+            
+class Brute(Player):
+    
+    health = 120
+    stamina = 10
+    max_stamina = 20
+    damage = 25
+    damageVar = 15
+    damageMod = 1
+    desc = 'Your attacks are strong and powerful but unpredicable and tiring'
+    playerType = 'Brute'
+    
+    def __init__(self, name):
+        super().__init__(name)
+    
+class Agile(Player):
+    
+    health = 80
+    stamina = 60
+    max_stamina = 120
+    damage = 15
+    damageVar = 5
+    damageMod = 1
+    desc = 'Your attacks are weak but your strikes are predicable and frequent'
+    playerType = 'Agile'
+    
+    def __init__(self, name):
+        self.type = 'Agile'
+        super().__init__(name)
         
 class Enemy: # Base enemy class and traits
     num = 0
     
-    def __init__(self):
-        self.action = 'Saw Player'
-        
-        self.health = 100
-        self.stamina = 20
-        self.max_stamina = 30
-        self.damage = 20
-        self.damageVar = 10
-        self.damageMod = 0.5
-        
-        self.name = "Error Enemy"
-        
+    action = 'Saw Player'
+    health = 100
+    stamina = 20
+    max_stamina = 30
+    damage = 20
+    damageVar = 10
+    damageMod = 0.5
+    
+    name = "Error Enemy"
+    
+    def __init__(self):        
         Enemy.num += 1
-        
         self.id = uuid.uuid4()
         
     def calcDamage(self): # Calculates the amount of damage a enemy should do
@@ -104,21 +133,23 @@ class Enemy: # Base enemy class and traits
         return int((self.damage + randint(self.damageVar - 3, self.damageVar + 3)) * self.damageMod)
 
 class Zombie(Enemy): # Subclass Zombie
+    health = 125
+    stamina = 10
+    max_stamina = 15
+    damage = 25
+    damageVar = 10
+    name = 'Zombie'
+    
     def __init__(self):
         super().__init__()
-        self.health = 125
-        self.stamina = 10
-        self.max_stamina = 15
-        self.damage = 25
-        self.damageVar = 10
-        self.name = 'Zombie'
         
 class Skeleton(Enemy): # Subclass Skeleton
+    health = 75
+    stamina = 25
+    max_stamina = 35
+    damage = 15
+    damageVar = 5
+    name = 'Skeleton'
+
     def __init__(self):
         super().__init__()
-        self.health = 75
-        self.stamina = 25
-        self.max_stamina = 35
-        self.damage = 15
-        self.damageVar = 5
-        self.name = 'Skeleton'

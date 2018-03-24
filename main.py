@@ -4,7 +4,7 @@ import function, menu, classes
 from random import randint
 
 print('Welcome to the DANGERZONE!')
-player = classes.Player(input('Please enter your name: '))
+player = menu.choosePlayer()
 enemys = function.randEnemy(randint(1,2))
 
 menu.mainLoop(player,enemys) # Starts the main loop for the game

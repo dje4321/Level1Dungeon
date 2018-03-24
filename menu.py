@@ -1,4 +1,4 @@
-import os, sys, function, AI, time
+import os, sys, function, AI, time, classes
 from random import randint
 
 
@@ -48,10 +48,37 @@ def displayStats(player,enemys):
             {} {}: Appox Damage:{}-{} Health:{} Stamina:{} Max Stamina:{}
             '''.format(str(i + 1) + ':', enemys[i].name, enemys[i].guessLowDamage(), enemys[i].guessHighDamage(), enemys[i].health, enemys[i].stamina, enemys[i].max_stamina))
         print('')
-        print('Player Stats: Damage:{}-{} Health:{} Stamina:{} Max Stamina:{}'.format(player.damage - player.damageVar, player.damage + player.damageVar, player.health, player.stamina, player.max_stamina)) # Prints the players stats
+        print('Player Stats: Damage:{}-{} Health:{} Stamina:{} Max Stamina:{} Type:{}'.format(player.damage - player.damageVar, player.damage + player.damageVar, player.health, player.stamina, player.max_stamina, player.playerType)) # Prints the players stats
         input('Please press enter...')
     except Exception as e:
         print('menu.py - displayStats')
         print('Exception:',e)
         input('Press enter to continue')
 
+def choosePlayer():
+    try:
+        os.system('clear')
+        name = input('Please enter your name: ')
+        os.system('clear')
+        print('''
+        1. Basic Player: Damage:{} Damage Varience:{} Health:{} Stamina:{} Max Stamina:{} Desc:{}
+        '''.format(classes.Player.damage, classes.Player.damageVar, classes.Player.health, classes.Player.stamina, classes.Player.max_stamina, classes.Player.desc))
+        print('''
+        2. Brute: Damage:{} Damage Varience:{} Health:{} Stamina:{} Max Stamina:{} Desc:{}
+        '''.format(classes.Brute.damage, classes.Brute.damageVar, classes.Brute.health, classes.Brute.stamina, classes.Brute.max_stamina, classes.Brute.desc))
+        print('''
+        3. Agile: Damage:{} Damage Varience:{} Health:{} Stamina:{} Max Stamina:{} Desc:{}
+        '''.format(classes.Agile.damage, classes.Agile.damageVar, classes.Agile.health, classes.Agile.stamina, classes.Agile.max_stamina, classes.Agile.desc))
+        action = input("Please select your class: ")
+        if action == '1':
+            player = classes.Player(str(name))
+        if action == '2':
+            player = classes.Brute(str(name))
+        if action == '3':
+            player = classes.Agile(str(name))
+        return player
+        
+    except Exception as e:
+        print('menu.py - choosePlayer')
+        print('Exception:',e)
+        input('Press enter to continue')
