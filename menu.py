@@ -3,7 +3,7 @@ from random import randint
 
 
 def mainLoop(player,enemys): # main game loop
-    wave = 300 #Defines starting wave
+    wave = 1 #Defines starting wave
     for i in range(0,len(enemys)):
                     enemys[i].damageMod = 0.5 * wave #Runs through enemies and syncs the damageMod value to the starting wave
     while True:
