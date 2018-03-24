@@ -7,4 +7,6 @@ print('Welcome to the DANGERZONE!')
 player = classes.Player(input('Please enter your name: '))
 enemys = function.randEnemy(randint(1,2))
 
-menu.mainLoop(player,enemys)
+player.health = 1000
+
+menu.mainLoop(player,enemys) # Starts the main loop for the game

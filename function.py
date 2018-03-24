@@ -1,7 +1,7 @@
 from random import randint
 import classes, os, sys, time, menu
 
-def randEnemy(numEnemy,enemys='None'):
+def randEnemy(numEnemy,enemys='None'): # Randomly generates some enemies and returns a list
     if enemys == 'None':
         enemys = []
         
@@ -14,16 +14,10 @@ def randEnemy(numEnemy,enemys='None'):
             
     return enemys
 
-def checkEnemyHealth(enemys):
+def checkEnemyHealth(enemys): # Checks to see if the enemys are dead and if they are remove them from the enemys list and lets GC handle it
     i = 0
     while i < len(enemys):
         if enemys[i].health <= 0:
             enemys.pop(i)
         i += 1
     return enemys
-
-def winCondition(enemys):
-    if len(enemys) == 0:
-        os.system('clear')
-        print('Congrats. You win :D')
-        sys.exit()
