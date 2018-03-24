@@ -98,10 +98,10 @@ class Enemy: # Base enemy class and traits
             input('Press enter to continue')
             
     def guessLowDamage(self): # Will generate a approxomite low damage value
-        return (self.damage - randint(self.damageVar - 3, self.damageVar + 3)) * self.damageMod
+        return int((self.damage - randint(self.damageVar - 3, self.damageVar + 3)) * self.damageMod)
         
     def guessHighDamage(self): # Will generate a approxomite high damage value
-        return (self.damage + randint(self.damageVar - 3, self.damageVar + 3)) * self.damageMod
+        return int((self.damage + randint(self.damageVar - 3, self.damageVar + 3)) * self.damageMod)
 
 class Zombie(Enemy): # Subclass Zombie
     def __init__(self):
